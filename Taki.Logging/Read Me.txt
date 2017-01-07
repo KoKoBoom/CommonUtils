@@ -1,5 +1,22 @@
 ﻿Author: mister_zheng@sina.com
 
+2017.01.07 更新说明
+
+1、将 LoggerFactory.CreateLog() 改为 LoggerFactory.Create() 
+   因为 LoggerFactory 本意就是 日志创建工厂，那么 Create 就已经能表达出创建 Logger 的意思了，CreateLog 语义上显得重复。（其实我只是想减少方法名长度，哈哈）
+
+2、对本类库做了大量的异常处理，LoggerFactory.Create() 在一般情况下不可能出现异常。
+   如果还不放心，建议使用C# 6.0 语法：?.
+   即 LoggerFactory.Create()?.Error("输出到日志的消息","错误的来源类");
+   绝对保证本条代码的安全性，绝不会出任何异常。
+
+   重要的事情说三遍：
+   推荐使用C# 6.0 语法  ?.
+   LoggerFactory.Create() ?. Error(exception);
+   LoggerFactory.Create() ?. Error("输出到日志的消息",exception);
+   LoggerFactory.Create() ?. Error("输出到日志的消息","错误的来源类");
+
+
 2016.12.22 更新说明
 
 	移除了 web.config 添加配置的需求，现在不添加配置也可以了，默认是使用log4net作为日志功能（前提是不修改类的空间名，即默认为“Taki.Logging.Logger4Factory”）

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Taki.Logging
+﻿namespace Taki.Logging
 {
     internal class Logger4Factory : ILoggerFactory
     {
@@ -33,7 +31,7 @@ namespace Taki.Logging
                 path = System.Windows.Forms.Application.StartupPath + "\\Extend\\log4net\\log4net.config";//WinForm程序
             }
             SetConfig(path);
-            Logging.LoggerFactory.SetCurrent(new Logging.Logger4Factory());
+            LoggerFactory.SetCurrent(new Logger4Factory());
         }
     }
 }

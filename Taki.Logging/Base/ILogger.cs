@@ -1,13 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Taki.Logging
 {
     public interface ILogger
     {
+
+        /// <summary>
+        /// Log debug message
+        /// </summary>
+        /// <param name="exception"></param>
+        void Debug(Exception exception);
+
         /// <summary>
         ///   Log debug message
         /// </summary>
@@ -30,6 +33,12 @@ namespace Taki.Logging
         void Debug(object item);
 
         /// <summary>
+        /// Log FATAL error
+        /// </summary>
+        /// <param name="exception"></param>
+        void Fatal(Exception exception);
+
+        /// <summary>
         ///   Log FATAL error
         /// </summary>
         /// <param name="message"> The message of fatal error </param>
@@ -44,6 +53,12 @@ namespace Taki.Logging
         void Fatal(string message, Exception exception, params object[] args);
 
         /// <summary>
+        /// Log message information
+        /// </summary>
+        /// <param name="exception"></param>
+        void Info(Exception exception);
+
+        /// <summary>
         ///   Log message information
         /// </summary>
         /// <param name="message"> The information message to write </param>
@@ -51,11 +66,23 @@ namespace Taki.Logging
         void Info(string message, params object[] args);
 
         /// <summary>
+        /// Log warning message
+        /// </summary>
+        /// <param name="exception"></param>
+        void Warning(Exception exception);
+
+        /// <summary>
         ///   Log warning message
         /// </summary>
         /// <param name="message"> The warning message to write </param>
         /// <param name="args"> The argument values </param>
         void Warning(string message, params object[] args);
+
+        /// <summary>
+        /// Log error message
+        /// </summary>
+        /// <param name="exception"></param>
+        void Error(Exception exception);
 
         /// <summary>
         ///   Log error message
